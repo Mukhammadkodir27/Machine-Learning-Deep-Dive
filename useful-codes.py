@@ -109,6 +109,7 @@
 # (skipna = True)
 # * if there is a column with more than 500 notNA keep it, else delete that row
 # titanic.dropna(axis=1, thresh=500, inplace=True)
+# houses.drop(variables_nzv, axis = 1, inplace = True)
 
 # ! Visualizations of N/A
 # plt.figure(figsize=(6, 6))
@@ -140,6 +141,7 @@
 # df.sort_values(by = ['Age', 'Year', 'Grade'])
 
 # ! unique, nunique, nlargest, nsmallest
+# results_df = results_df.sort_values(by=['freq_ratio', 'unique_ratio'], ascending=[False, True])
 # df.sort_values(by = 'Column_Name', ascending = True)
 # len(df['column_name'].unique())
 # df['column_name'].nun
@@ -154,6 +156,9 @@
 # df.insert(loc=5, column='New_Column_Name', value=New_Column_Name)
 # rows_to_delete = list(range(1, 100))
 # df.drop(index = rows_to_delete)
+
+# houses.drop(variables_nzv, axis = 1, inplace = True)
+# houses.drop(['Latitude', 'Longitude'], axis=1, inplace=True)
 
 # df.count(axis=0)  # * rows
 # df.count(axis=1)  # * columns
@@ -222,3 +227,7 @@
 # sns.heatmap(pd.crosstab(titanic.Sex, titanic.Survived), annot=True, fmt='d', cmap='Reds', vmax=100)
 # * vmax -> to set a limit, ex: above 100 is dark red
 # * cmap -> color type
+
+
+#! select all numeric columns / variables
+# numeric_variables = houses_train.select_dtypes(include=[np.number]).columns
